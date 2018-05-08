@@ -1,0 +1,32 @@
+// BREAKPOINTS -------------------------------------------------
+@mixin for-phone
+	@media (max-width: 599px)
+		@content
+
+
+@mixin for-tablet-portrait
+	@media (min-width: 600px)
+		@content
+
+
+@mixin for-tablet-landscape
+	@media (min-width: 900px)
+		@content
+
+
+@mixin for-desktop
+	@media (min-width: 1200px)
+		@content
+
+
+@mixin for-big-desktop
+	@media (min-width: 1800px)
+		@content
+
+@mixin font-face($font-family, $file-path, $weight: normal, $style: normal)
+	@font-face
+		font-family: $font-family
+		font-weight: $weight
+		font-style: $style
+		src: url('#{$file-path}.eot')
+		src: url('#{$file-path}.eot?#iefix') format('embedded-opentype'), url('#{$file-path}.woff') format('woff'), url('#{$file-path}.ttf') format('truetype')
