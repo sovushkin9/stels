@@ -48,7 +48,7 @@ gulp.task('sprite', function() {
 gulp.task('libs', function() {
 	return gulp.src([
 		'app/libs/jquery/dist/jquery.min.js',
-		// 'app/libs/slick/slick.min.js',
+		'app/libs/slick/slick.min.js',
 		// 'app/libs/remodal/remodal.min.js',
 		])
 		.pipe(concat('libs.min.js'))
