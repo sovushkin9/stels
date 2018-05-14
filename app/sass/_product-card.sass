@@ -1,20 +1,23 @@
 .product-card
 	&__nav-list
-		display: flex
-		justify-content: space-between
-		flex-wrap: wrap
+		display: none
 		padding: 29px 0
-
+		@include for-tablet-landscape
+			display: flex
+			justify-content: space-between
+			flex-wrap: wrap
 	&__nav-item
 		display: inline-block
 		a
 			display: inline-block
-			font-size: 22px
+			font-size: 15px
 			color: #000
 			font-weight: 700
 			text-decoration: none
 			border-bottom: 1px dotted #c6c6c6
 			transition: all .1s
+			@include for-desktop
+				font-size: 22px
 		&:hover,
 		&.active
 			a
@@ -22,43 +25,61 @@
 				border-color: #97d700
 	&__galery
 		padding: 40px 0
+
+	&__slider-wrap
+		position: relative
+		overflow: hidden
+
 	&__slider
-		margin: 0 -15px
-		//slider buttons style
-		.slick-arrow
-			background-color: #97d700
-			border: none
-			outline: none
-			position: absolute
-			top: 50%
-			z-index: 99
+		margin: 0 -10px
+		@include for-tablet-landscape
+			margin: 0 -15px
+	
+	&__slider-btn
+		padding: 10px 0
+		text-align: center
+
+	&__slider-arrow
+		display: inline-block !important
+		background-color: #97d700
+		border: none
+		outline: none
+		position: relative
+		padding: 12px 14px
+		box-shadow: 0 2px 0 rgba(129,185,9,1)
+		border-radius: 3px
+		transition: box-shadow .1s
+		user-select: none
+		cursor: pointer
+		@include for-tablet-landscape
 			width: auto
 			height: auto
-			padding: 12px 14px
-			box-shadow: 0 2px 0 rgba(129,185,9,1)
-			border-radius: 3px
-			transition: box-shadow .1s
-			&:active
-				box-shadow: 0 1px 0 rgba(129,185,9,1)
-			&:before
-				content: ''
-				display: block
-				width: 11px
-				height: 18px
-				background: url(../img/arrow.png) no-repeat center center
-		.slick-prev
-			left: 15px
-		.slick-next
-			right: 15px
-			&:before
-				transform: rotate(180deg)
-		
+			position: absolute
+			top: calc(50% - 21px)
+		&:active
+			box-shadow: 0 1px 0 rgba(129,185,9,1)
+		&:before
+			content: ''
+			display: block
+			width: 11px
+			height: 18px
+			background: url(../img/arrow.png) no-repeat center center
+	
+	&__slider-prev
+		z-index: 999
+		left: 0
+	&__slider-next
+		right: 0
+		&:before
+			transform: rotate(180deg)
 
 	&__slider-item
 		max-width: 360px
 		height: 262px
 		background-size: cover
-		margin: 0 15px
+		margin: 0 10px
+		@include for-tablet-landscape
+			margin: 0 15px
 
 
 	&__table
@@ -71,14 +92,22 @@
 			background: #f8f8f8
 
 	&__td
+		font-size: 12px
 		display: table-cell
-		padding: 12px 20px
+		padding: 12px 10px
+		width: 50%
+		@include for-tablet-portrait
+			font-size: 14px
+			padding: 12px 20px
+		@include for-tablet-landscape
+			width: auto
 
 	&__file
 		padding: 40px 0
 
 	&__file-link
 		display: inline-block
+		width: 100%
 		color: #97d700
 		font-size: 14px
 		font-weight: 700
@@ -87,6 +116,10 @@
 		border-radius: 3px
 		position: relative
 		transiton: border-color .1s
+		margin-bottom: 20px
+		@include for-tablet-landscape
+			width: auto
+			margin-right: 30px
 		&:hover
 			border-color: #ccc
 		&:before
@@ -97,9 +130,6 @@
 			background: url('../img/file-ic.png') center center no-repeat
 			position: absolute
 			left: 15px
-
-	&__file-link+&__file-link
-		margin-left: 30px
 
 	&__tech
 		padding: 60px 0
@@ -145,6 +175,148 @@
 		font-weight: 700
 		text-transform: uppercase
 
+	&__geometry
+		padding: 60px 0
+
+	&__toside-wrap
+		display: flex
+		justify-content: space-between
+		flex-wrap: wrap
+
+	&__left,
+	&__right
+		width: 49%
+
+	&__article
+		padding-bottom: 25px
+		h3
+			font-size: 14px
+			font-weight: 700
+			line-height: 20px
+			text-transform: uppercase
+			margin-bottom: 10px
+		p
+			font-size: 14px
+			font-weight: 400
+			line-height: 24px
+
+	&__article-link
+		display: inline-block
+		text-align: center
+		min-width: 190px
+		box-shadow: 0 2px 0 #81b90a
+		border-radius: 3px
+		color: #fff
+		font-size: 12px
+		text-transform: uppercase
+		padding: 14px 25px
+		cursor: pointer
+		font-weight: 700
+		background-color: #97d700
+		margin: 15px 0
+		transition: box-shadow .1s
+		cursor: pointer
+		user-select: none
+		&:active
+			box-shadow: 0 1px 0 rgba(129,185,9,1)
+	&__review
+		padding: 60px 0
+
+	&__review-raw
+		max-width: 498px
+		width: 100%
+		height: 280px
+
+	&__review-text
+		p
+			line-height: 24px
+			margin-bottom: 20px
+
+	&__review-video
+		background: #fff
+		text-align: center
+		border-radius: 3px
+		border: 1px solid #e3e3e3
+
+	&__video-title
+		font-size: 18px
+		font-weight: 700
+		line-height: 45px
+
+	&__download-video
+		padding: 15px 10px
+		display: inline-block
+		color: #97d700
+		font-size: 14px
+		font-weight: 700
+		position: relative
+		&:hover
+			span
+				border-bottom: 1px dotted #97d700
+		&:before
+			content: ''
+			display: inline-block
+			posiiton: absolute
+			width: 14px
+			height: 12px
+			margin: 0 8px
+			background: url(../img/download-video.png) center center no-repeat	
+			position: relative
+			left: 0
+
+	&__similar
+		padding: 60px 0
+
+	&__property
+		padding: 60px 0 40px
+
+	&__property-tocart
+		border-bottom: none
+
+	&__property-notice
+		color: #707070
+		font-size: 12px
+		font-weight: 400
+		line-height: 24px
+	
+.category-banner
+	background-position: center center
+	background-size: cover
+	padding: 116px 0
+	
+	&__inner
+		width: 50%
+		padding: 40px 0
+		background: rgba(0,0,0,.5)
+	&__name
+		color: #fffefe
+		font-size: 50px
+		font-weight: 700
+		line-height: 60px
+		padding-right: 30px
+
+	&__link
+		display: inline-block
+		color: #fff
+		font-size: 18px
+		font-weight: 700
+		text-transform: uppercase
+		padding: 15px 30px
+		box-shadow: 0 2px 0 #81b90a
+		border-radius: 3px
+		background-color: #97d700
+		margin-top: 20px
+		transition: box-shadow .1s
+		cursor: pointer
+		user-select: none
+		&:active
+			box-shadow: 0 1px 0 #81b90a
+
+#location-map
+	height: 500px
+	width: 100%
+	.gmnoprint
+		border-radius: 50% !important
 
 /*.desk
 	width: 100%

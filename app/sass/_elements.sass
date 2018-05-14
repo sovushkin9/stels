@@ -6,15 +6,161 @@
 
 .page-container
 	max-width: 1140px
-	width: 100%
+	width: 95%
 	margin: 0 auto
 	//base style
 	font-family: 
 	font-size: 14px
 	color: #000
+	
+	@include for-desktop
+		width: 100%
+	
 
 .part-heading
-	font-size: 36px
 	font-weight: 700
-	line-height: 45px
 	margin-bottom: 32px
+	font-size: 18px
+	padding: 10px 15px
+	border: 1px solid #e3e3e3
+	border-radius: 3px
+	@include for-tablet-portrait
+		font-size: 20px
+		border: none
+		padding: 0
+	@include for-tablet-landscape
+		font-size: 26px
+	@include for-desktop
+		font-size: 36px
+		line-height: 45px
+
+.geometry-tab
+
+	&__scene
+		position: relative
+		overflow: hidden
+
+	&__item
+		position: absolute
+		display: none
+		&.active
+			position: relative
+			display: block
+	&__control
+		margin-top: 20px
+		
+	&__bar
+		height: 6px
+		border-radius: 2px
+		background-color: #e4e4e4
+		position: relative
+		&:after
+			content: ''
+			display: block
+			position: absolute
+			width: 95px
+			height: 100%
+			border-radius: 2px
+			background-color: #97d700
+
+	&__bar-info
+		display: flex
+		justify-content: space-around
+		align-items: center
+		margin-top: 5px
+		span
+			font-size: 24px
+			font-weight: 400
+			cursor: pointer
+			&.active
+				color: #97d700
+
+	&__bar-heading
+		font-size: 24px
+		font-weight: 700
+
+
+.product-cake
+	display: flex
+	justify-content: flex-start
+	margin: 0 -14px
+	flex-wrap: wrap
+	align-items: flex-start
+
+	&__item
+		max-width: 262px
+		width: 100%
+		border-radius: 3px
+		border: 1px solid #e3e3e3
+		background-color: #fff
+		margin: 0 15px 30px
+
+	&__body
+		padding: 20px 16px
+
+	&__img
+		text-align: center
+		img
+			display: inline-block
+			max-width: 100%
+			height: auto
+
+	&__heading
+		font-size: 18px
+		font-weight: 700
+		line-height: 24px
+
+	&__charact-item
+		color: #707070
+		font-size: 12px
+		font-weight: 400
+		line-height: 24px
+		span
+			color: #000
+
+	&__tocart
+		display: flex
+		justify-content: space-between
+		align-items: center
+		padding: 20px 16px
+		border-top: 1px solid #e3e3e3
+		border-bottom: 1px solid #e3e3e3
+
+	&__price
+		color: #707070
+		font-size: 12px
+		font-weight: 400
+		line-height: 24px
+		span
+			display: block
+			color: #000
+			font-size: 18px
+			font-weight: 700
+			text-transform: uppercase
+	&__buy
+		display: inline-block
+		padding: 14px 20px
+		box-shadow: 0 2px 0 #81b90a
+		border-radius: 3px
+		background-color: #97d700
+		color: #fff
+		font-size: 12px
+		font-weight: 700
+		text-transform: uppercase
+		transition: box-shadow .1s
+		cursor: pointer
+		user-select: none
+		&:active
+				box-shadow: 0 1px 0 rgba(129,185,9,1)
+
+	&__tocompare
+		display: block
+		padding: 13px 0
+		text-align: center
+		color: #97d700
+		font-size: 12px
+		font-weight: 700
+		line-height: 20px
+		&:hover
+			span
+				border-bottom: 1px dotted #97d700
