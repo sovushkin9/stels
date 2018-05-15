@@ -11,8 +11,8 @@
 		a
 			display: inline-block
 			font-size: 15px
+			font-family: $bold-font
 			color: #000
-			font-weight: 700
 			text-decoration: none
 			border-bottom: 1px dotted #c6c6c6
 			transition: all .1s
@@ -24,7 +24,9 @@
 				color: #97d700
 				border-color: #97d700
 	&__galery
-		padding: 40px 0
+		padding: 40px 0 23px
+		@include for-tablet-landscape
+			padding: 40px 0 12px
 
 	&__slider-wrap
 		position: relative
@@ -45,17 +47,20 @@
 		border: none
 		outline: none
 		position: relative
-		padding: 12px 14px
+		padding: 11px 14px
 		box-shadow: 0 2px 0 rgba(129,185,9,1)
 		border-radius: 3px
 		transition: box-shadow .1s
 		user-select: none
 		cursor: pointer
+		margin: 0 9px
+		z-index: 99999
 		@include for-tablet-landscape
 			width: auto
 			height: auto
 			position: absolute
-			top: calc(50% - 21px)
+			top: calc(50% - 30px)
+			margin: 0
 		&:active
 			box-shadow: 0 1px 0 rgba(129,185,9,1)
 		&:before
@@ -66,7 +71,6 @@
 			background: url(../img/arrow.png) no-repeat center center
 	
 	&__slider-prev
-		z-index: 999
 		left: 0
 	&__slider-next
 		right: 0
@@ -75,9 +79,11 @@
 
 	&__slider-item
 		max-width: 360px
-		height: 262px
+		height: 233px
 		background-size: cover
 		margin: 0 10px
+		@include for-tablet-portrait
+			height: 262px
 		@include for-tablet-landscape
 			margin: 0 15px
 
@@ -93,32 +99,77 @@
 
 	&__td
 		font-size: 12px
+		font-family: $bold-font
 		display: table-cell
-		padding: 12px 10px
+		padding: 10px 32px 10px 2.5%
 		width: 50%
+		position: relative
+		&:first-child
+			@include for-tablet-landscape
+				width: 58%
+		&:nth-child(2n)
+			font-family: $default-font
 		@include for-tablet-portrait
 			font-size: 14px
-			padding: 12px 20px
+			padding: 8px 46px 9px 20px
 		@include for-tablet-landscape
 			width: auto
 
+	&__td-link
+		color: #97d700
+		font-size: 14px
+		border-bottom: 1px dashed #97d700
+		transition: border-color .1s
+		@include for-tablet-portrait
+			margin: 0 5px
+		&:hover 
+			border-color: transparent
+
+	&__bl-mob
+		display: block
+		@include for-tablet-portrait
+			display: inline
+
+	&__answer
+		display: block
+		width: 26px
+		height: 26px
+		border: 1px solid #e3e3e3
+		background-color: #fff
+		border-radius: 50%
+		position: absolute
+		right: 2.5%
+		cursor: pointer
+		top: 8px
+		margin: auto
+		background: url(../img/answer-ic.png) center center no-repeat
+		@include for-tablet-portrait
+			right: 15px
+			top: 0
+			bottom: 0
 	&__file
-		padding: 40px 0
+		padding: 30px 0
+		@include for-tablet-portrait
+			padding: 40px 0
 
 	&__file-link
 		display: inline-block
 		width: 100%
 		color: #97d700
 		font-size: 14px
-		font-weight: 700
+		font-family: $bold-font
 		padding: 13px 15px 13px 45px
 		border: 1px solid #e3e3e3
 		border-radius: 3px
 		position: relative
-		transiton: border-color .1s
-		margin-bottom: 20px
+		transition: border-color .1s
+		margin-bottom: 9px
+		@include for-tablet-portrait
+			margin-bottom: 20px
 		@include for-tablet-landscape
-			width: auto
+			max-width: 262px
+			margin-right: 20px
+		@include for-desktop
 			margin-right: 30px
 		&:hover
 			border-color: #ccc
@@ -132,7 +183,9 @@
 			left: 15px
 
 	&__tech
-		padding: 60px 0
+		padding: 30px 0
+		@include for-tablet-portrait
+			padding: 60px 0
 
 	&__tech-row
 		display: flex
@@ -171,12 +224,14 @@
 
 	&__tech-heading
 		display: block
+		font-family: $bold-font
 		margin-top: 15px
-		font-weight: 700
 		text-transform: uppercase
 
 	&__geometry
-		padding: 60px 0
+		padding: 30px 0 50px
+		@include for-tablet-portrait
+			padding: 60px 0 54px
 
 	&__toside-wrap
 		display: flex
@@ -185,19 +240,26 @@
 
 	&__left,
 	&__right
-		width: 49%
+		width: 100%
+		@media (min-width: 1000px)
+			width: 48.6%
+
 
 	&__article
-		padding-bottom: 25px
+		margin-top: 23px
+		@include for-tablet-portrait
+			padding-top: 35px
+		@media (min-width: 1000px)
+			padding-top: 0
+			padding-bottom: 25px
 		h3
 			font-size: 14px
-			font-weight: 700
-			line-height: 20px
+			font-family: $bold-font
+			line-height: 14px
 			text-transform: uppercase
 			margin-bottom: 10px
 		p
 			font-size: 14px
-			font-weight: 400
 			line-height: 24px
 
 	&__article-link
@@ -208,26 +270,37 @@
 		border-radius: 3px
 		color: #fff
 		font-size: 12px
+		font-family: $bold-font
 		text-transform: uppercase
-		padding: 14px 25px
+		padding: 13px 25px
 		cursor: pointer
-		font-weight: 700
 		background-color: #97d700
-		margin: 15px 0
+		margin: 13px 0 6px
 		transition: box-shadow .1s
 		cursor: pointer
 		user-select: none
+		@include for-tablet-portrait
+			margin: 13px 0
 		&:active
 			box-shadow: 0 1px 0 rgba(129,185,9,1)
 	&__review
-		padding: 60px 0
+		padding: 30px 0
+		@include for-tablet-portrait
+			padding: 52px 0
 
 	&__review-raw
-		max-width: 498px
-		width: 100%
-		height: 280px
-
+		display: block
+		margin: 0 auto
+		width: 90%
+		height: 162px
+		@media (min-width: 400px)
+				height: 280px 
+		@include for-tablet-portrait
+			max-width: 498px
 	&__review-text
+		margin-top: -9px
+		@include for-tablet-portrait
+			margin-top: 0
 		p
 			line-height: 24px
 			margin-bottom: 20px
@@ -237,10 +310,13 @@
 		text-align: center
 		border-radius: 3px
 		border: 1px solid #e3e3e3
+		margin-top: 8px
+		@media (min-width: 1000px)
+			margin-top: -60px
 
 	&__video-title
 		font-size: 18px
-		font-weight: 700
+		font-family: $bold-font
 		line-height: 45px
 
 	&__download-video
@@ -248,7 +324,7 @@
 		display: inline-block
 		color: #97d700
 		font-size: 14px
-		font-weight: 700
+		font-family: $bold-font
 		position: relative
 		&:hover
 			span
@@ -265,10 +341,14 @@
 			left: 0
 
 	&__similar
-		padding: 60px 0
+		padding: 30px 0 40px
+		@include for-tablet-portrait
+			padding: 52px 0 30px
 
 	&__property
-		padding: 60px 0 40px
+		padding: 30px 0
+		@include for-tablet-portrait
+			padding: 49px 0 37px
 
 	&__property-tocart
 		border-bottom: none
@@ -276,39 +356,69 @@
 	&__property-notice
 		color: #707070
 		font-size: 12px
-		font-weight: 400
-		line-height: 24px
+		line-height: 22px
+		text-align: center
+		margin-top: 10px
+		padding: 0 27px
+		@include for-tablet-portrait
+			padding: 0
+			text-align: left
+			margin-top: 3px
 	
 .category-banner
-	background-position: center center
+	background-position: 63% center
 	background-size: cover
-	padding: 116px 0
-	
+	height: 500px
+	display: flex
+	justify-content: flex-start
+	align-items: flex-end
+	@include for-tablet-landscape
+		align-items: center
 	&__inner
-		width: 50%
-		padding: 40px 0
+		width: 100%
+		padding: 25px 0 29px
+		text-align: center
 		background: rgba(0,0,0,.5)
+		@include for-tablet-portrait
+			padding: 25px 0 40px
+		@include for-tablet-landscape
+			width: 47.7%
+			text-align: left
 	&__name
 		color: #fffefe
-		font-size: 50px
-		font-weight: 700
-		line-height: 60px
-		padding-right: 30px
+		font-size: 26px
+		font-family: $bold-font
+		line-height: 28px
+		@include for-tablet-portrait
+			line-height: 36px
+		@include for-tablet-landscape
+			padding-right: 30px
+			font-size: 36px
+		@include for-desktop
+			font-size: 50px
+			line-height: 60px
 
 	&__link
 		display: inline-block
 		color: #fff
-		font-size: 18px
-		font-weight: 700
+		font-size: 12px
+		font-family: $bold-font
+		padding: 10px 20px	
 		text-transform: uppercase
-		padding: 15px 30px
 		box-shadow: 0 2px 0 #81b90a
 		border-radius: 3px
 		background-color: #97d700
-		margin-top: 20px
+		margin-top: 9px
 		transition: box-shadow .1s
 		cursor: pointer
 		user-select: none
+		@include for-tablet-portrait
+			margin-top: 20px
+		@include for-tablet-landscape
+			font-size: 16px
+		@include for-desktop
+			font-size: 18px
+			padding: 11px 32px	
 		&:active
 			box-shadow: 0 1px 0 #81b90a
 

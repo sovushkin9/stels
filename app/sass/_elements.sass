@@ -9,21 +9,32 @@
 	width: 95%
 	margin: 0 auto
 	//base style
-	font-family: 
+	font-family: $default-font
 	font-size: 14px
 	color: #000
-	
 	@include for-desktop
 		width: 100%
+
+	&_galery,
+	&_table
+		width: 100%
+		@include for-tablet-portrait
+			width: 95%
+		@include for-desktop
+			width: 100%
+
 	
 
 .part-heading
-	font-weight: 700
-	margin-bottom: 32px
+	font-family: $bold-font
+	margin-bottom: 30px
 	font-size: 18px
 	padding: 10px 15px
 	border: 1px solid #e3e3e3
 	border-radius: 3px
+	&:nth-child(2n)
+		margin-top: -55px
+		background: #fff
 	@include for-tablet-portrait
 		font-size: 20px
 		border: none
@@ -34,11 +45,20 @@
 		font-size: 36px
 		line-height: 45px
 
+	&_shift-mob
+		margin-top: -55px
+		background: #fff
+		@include for-tablet-portrait
+			margin-top: 0
+			background: transparent
+
 .geometry-tab
 
 	&__scene
 		position: relative
 		overflow: hidden
+		display: flex
+		justify-content: center
 
 	&__item
 		position: absolute
@@ -47,7 +67,9 @@
 			position: relative
 			display: block
 	&__control
-		margin-top: 20px
+		margin-top: 21px
+		@include for-tablet-portrait
+			margin-top: 30px
 		
 	&__bar
 		height: 6px
@@ -58,7 +80,7 @@
 			content: ''
 			display: block
 			position: absolute
-			width: 95px
+			width: 17%
 			height: 100%
 			border-radius: 2px
 			background-color: #97d700
@@ -67,36 +89,52 @@
 		display: flex
 		justify-content: space-around
 		align-items: center
-		margin-top: 5px
+		margin-top: 9px
 		span
-			font-size: 24px
-			font-weight: 400
+			font-size: 16px
 			cursor: pointer
+			@include for-tablet-portrait
+				font-size: 18px
+			@include for-desktop
+				font-size: 24px
 			&.active
 				color: #97d700
 
 	&__bar-heading
-		font-size: 24px
-		font-weight: 700
+		font-size: 16px
+		font-family: $bold-font
+		@include for-tablet-portrait
+			font-size: 18px
+		@media (min-width: 1000px)
+			font-size: 24px
 
 
 .product-cake
-	display: flex
-	justify-content: flex-start
-	margin: 0 -14px
-	flex-wrap: wrap
-	align-items: flex-start
+	&__btn
+		display: block
+		@include for-tablet-portrait
+			display: none	
 
+	&__inner
+		display: flex
+		justify-content: center
+		margin: 0 -14px
+		flex-wrap: wrap
+		align-items: flex-start
+		@media (min-width: 1000px)
+			justify-content: flex-start
 	&__item
-		max-width: 262px
-		width: 100%
 		border-radius: 3px
 		border: 1px solid #e3e3e3
 		background-color: #fff
-		margin: 0 15px 30px
+		margin: 0 35px 0
+		@include for-tablet-portrait
+			max-width: 262px
+			margin: 0 15px 30px
+			width: 100%
 
 	&__body
-		padding: 20px 16px
+		padding: 20px 13px 11px
 
 	&__img
 		text-align: center
@@ -107,13 +145,14 @@
 
 	&__heading
 		font-size: 18px
-		font-weight: 700
+		font-family: $bold-font
 		line-height: 24px
-
+		margin: 13px 0 9px
+		@include for-tablet-portrait
+			margin: 14px 0 12px
 	&__charact-item
 		color: #707070
 		font-size: 12px
-		font-weight: 400
 		line-height: 24px
 		span
 			color: #000
@@ -122,20 +161,19 @@
 		display: flex
 		justify-content: space-between
 		align-items: center
-		padding: 20px 16px
+		padding: 19px 16px
 		border-top: 1px solid #e3e3e3
 		border-bottom: 1px solid #e3e3e3
 
 	&__price
 		color: #707070
 		font-size: 12px
-		font-weight: 400
-		line-height: 24px
+		line-height: 21px
 		span
 			display: block
 			color: #000
 			font-size: 18px
-			font-weight: 700
+			font-family: $bold-font
 			text-transform: uppercase
 	&__buy
 		display: inline-block
@@ -145,7 +183,7 @@
 		background-color: #97d700
 		color: #fff
 		font-size: 12px
-		font-weight: 700
+		font-family: $bold-font
 		text-transform: uppercase
 		transition: box-shadow .1s
 		cursor: pointer
@@ -155,11 +193,11 @@
 
 	&__tocompare
 		display: block
-		padding: 13px 0
+		padding: 11px 0
 		text-align: center
 		color: #97d700
 		font-size: 12px
-		font-weight: 700
+		font-family: $bold-font
 		line-height: 20px
 		&:hover
 			span
