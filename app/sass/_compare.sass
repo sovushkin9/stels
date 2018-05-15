@@ -40,7 +40,6 @@
 	
 	&__product
 		width: 74.1%
-		display: flex
 		.slick-list
 			padding: 0 5% 0 0
 
@@ -48,6 +47,7 @@
 		width: 82.1%
 		padding: 0 64px
 		margin: 0 -10px
+		position: relative
 
 	&__slider-item
 		max-width: 251px
@@ -55,6 +55,8 @@
 		height: 82px
 		width: 100%
 		background-color: #fff
+		border-radius: 3px
+		border: 1px solid #e3e3e3
 		display: flex
 		align-items: center
 		justify-content: space-between
@@ -72,6 +74,41 @@
 	&__slider-info
 		font-size: 16px
 		font-family: $bold-font
+
+	&__slider-arrow
+		display: inline-block !important
+		width: 40px
+		height: 40px
+		position: absolute
+		top: 0
+		bottom: 0
+		margin: auto
+		background-color: #97d700
+		border: none
+		outline: none
+		padding: 11px 14px
+		box-shadow: 0 2px 0 rgba(129,185,9,1)
+		border-radius: 3px
+		transition: box-shadow .1s
+		user-select: none
+		cursor: pointer
+		z-index: 99999
+		&:active
+			box-shadow: 0 1px 0 rgba(129,185,9,1)
+		&:before
+			content: ''
+			display: block
+			width: 11px
+			height: 18px
+			background: url(../img/arrow.png) no-repeat center center
+	
+	&__slider-prev
+		left: 20px
+
+	&__slider-next
+		right: 20px
+		&:before
+			transform: rotate(180deg)
 
 .compare-notification
 	background-color: #97d700
@@ -111,3 +148,4 @@
 			bottom: 0
 			right: 0
 			margin: auto
+
