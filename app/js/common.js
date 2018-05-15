@@ -100,4 +100,33 @@ $(function() {
 	}
 	sizing();
 	$(window).resize(sizing);
+
+
+	function matchHeightCompare(){
+		var i= $('.compare__table-bl_heading > .compare__table-line').length;
+		for(var j=1; j<=i; j++){
+			$('[data-matchheight="'+j+'"]').matchHeight();
+		}
+	}
+	matchHeightCompare();
+
+
+	$('.compare__product').slick({
+		infinite: false,
+		slidesToShow: 3,
+		slidesToScroll: 1,
+		mobileFirst: true,
+		asNavFor: '.compare__slider',
+		draggable: false
+	});
+
+	$('.compare__slider').slick({
+		infinite: false,
+		slidesToShow: 3,
+		slidesToScroll: 1,
+		mobileFirst: true,
+		asNavFor: '.compare__product'
+	});
+	
+
 });
