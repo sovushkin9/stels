@@ -129,4 +129,12 @@ $(function() {
 	});
 	
 
+
+	function closeCompareNitification(){
+		$('.compare-notification__close').click(function(){
+			$(this).parents('.compare-notification').slideUp();
+		})
+	}
+
+	closeCompareNitification();
 });

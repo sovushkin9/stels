@@ -72,3 +72,42 @@
 	&__slider-info
 		font-size: 16px
 		font-family: $bold-font
+
+.compare-notification
+	background-color: #97d700
+	position: absolute
+	bottom: 0
+	width: 100%
+	box-shadow: 0 -5px 5px -5px rgba(0,0,0,.35)
+	&__inner
+		padding: 11px 0
+		display: flex
+		justify-content: space-between
+		align-items: center
+
+	&__link
+		color: #fff
+		font-family: $bold-font
+		border-bottom: 1px dotted transparent
+		transition: border-color .1s
+		&:hover
+			border-color: #fff
+
+	&__close
+		display: inline-block
+		font-family: $bold-font
+		padding-right: 25px
+		position: relative
+		color: #fff
+		cursor: pointer
+		&:before
+			content: ''
+			display: inline-block
+			width: 14px
+			height: 14px
+			background: url(../img/close-ic.png) center center no-repeat
+			position: absolute
+			top: 0
+			bottom: 0
+			right: 0
+			margin: auto
