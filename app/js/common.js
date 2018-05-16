@@ -203,7 +203,7 @@ $(function() {
 	closeCompareNitification();
 
 
-	function createSticky(sticky) {
+	/*function createSticky(sticky) {
 	
 	if (typeof sticky !== "undefined") {
 
@@ -222,6 +222,18 @@ $(function() {
 	}
 
 	createSticky($(".compare__table-nav"));
+*/
+
+	function partHeadingTab(){
+		if($(window).width()<600){
+			$('.product-card__tab-heading').click(function(){
+				$(this).find('.product-card__tab-picker').toggleClass('active');
+				$(this).siblings().slideToggle();
+			})
+		}
+	}
+
+	partHeadingTab();
 
 
 });
