@@ -1,0 +1,159 @@
+.compare
+	&__table-nav
+		box-shadow: 0 6px 4px rgba(79, 79, 79, 0.15)
+		padding:  10px 0
+		margin-bottom: 6px
+		transform: translateZ(0)
+		&.fixed
+			width: 100%
+			position: fixed
+			top: 0
+			z-index: 9999
+
+	&__exit
+		display: inline-block
+		color: #97d700
+		font-family: $bold-font
+		border-radius: 3px
+		border: 1px solid #e3e3e3
+		background-color: #fff
+		padding: 30px 34px
+		margin-right: 20px
+
+	&__table-wrap
+		display: flex
+
+	&__table-inner
+		display: flex
+		justify-content: flex-start
+		align-items: flex-start
+
+	&__table-bl
+		max-width: 270px
+		width: 100%
+		&_heading
+			font-family: $bold-font
+			max-width: 285px
+			.compare__table-line
+				padding: 10px 20px
+
+	&__table-line
+		padding: 10px 20px 10px 0
+		display: flex
+		align-items: center
+		&:nth-child(2n-1)
+			background-color: #f9f9f9
+	
+	&__product
+		width: 74.1%
+		.slick-list
+			padding: 0 4% 0 0
+
+	&__slider
+		width: 82.1%
+		padding: 0 64px
+		margin: 0 -10px
+		position: relative
+
+	&__slider-item
+		max-width: 251px
+		margin: 0 10px
+		height: 82px
+		width: 100%
+		background-color: #fff
+		border-radius: 3px
+		border: 1px solid #e3e3e3
+		display: flex
+		align-items: center
+		justify-content: space-between
+		padding: 12px 8px
+		positon: relative
+		z-index: 999
+
+	&__slider-img
+		max-width: 91px
+		max-height: 57px
+		width: 100%
+		height: 100%
+		background-size: cover
+		background-position: center center
+		margin: 5px
+
+	&__slider-info
+		font-size: 16px
+		font-family: $bold-font
+
+	&__slider-arrow
+		display: inline-block
+		width: 40px
+		height: 40px
+		position: absolute
+		top: 0
+		bottom: 0
+		margin: auto
+		background-color: #97d700
+		border: none
+		outline: none
+		padding: 11px 14px
+		box-shadow: 0 2px 0 rgba(129,185,9,1)
+		border-radius: 3px
+		transition: box-shadow .1s
+		user-select: none
+		cursor: pointer
+		z-index: 99999
+		&:active
+			box-shadow: 0 1px 0 rgba(129,185,9,1)
+		&:before
+			content: ''
+			display: block
+			width: 11px
+			height: 18px
+			background: url(../img/arrow.png) no-repeat center center
+	
+	&__slider-prev
+		left: 20px
+
+	&__slider-next
+		right: 20px
+		&:before
+			transform: rotate(180deg)
+
+.compare-notification
+	background-color: #97d700
+	position: fixed
+	bottom: 0
+	width: 100%
+	box-shadow: 0 -5px 5px -5px rgba(0,0,0,.35)
+	&__inner
+		padding: 11px 0
+		display: flex
+		justify-content: space-between
+		align-items: center
+
+	&__link
+		color: #fff
+		font-family: $bold-font
+		border-bottom: 1px dotted transparent
+		transition: border-color .1s
+		&:hover
+			border-color: #fff
+
+	&__close
+		display: inline-block
+		font-family: $bold-font
+		padding-right: 25px
+		position: relative
+		color: #fff
+		cursor: pointer
+		&:before
+			content: ''
+			display: inline-block
+			width: 14px
+			height: 14px
+			background: url(../img/close-ic.png) center center no-repeat
+			position: absolute
+			top: 0
+			bottom: 0
+			right: 0
+			margin: auto
+
