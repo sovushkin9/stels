@@ -143,25 +143,69 @@ $(function() {
 	closeCompareNitification();
 
 
-	function createSticky(sticky) {
+	// function createSticky(sticky) {
 	
-	if (typeof sticky !== "undefined") {
+	// if (typeof sticky !== "undefined") {
 
-		var	pos = sticky.offset().top;
-		$(window).on("scroll", function() {
-    		if ($(window).scrollTop() >= pos){
-    			$('body').css('padding-top',sticky.outerHeight());
-    			sticky.addClass("fixed");
-    		}
-    		else {
-    			$('body').css('padding-top',0);
-    			sticky.removeClass("fixed");
-    		}      
-			});			
-		}
+	// 	var	pos = sticky.offset().top;
+	// 	$(window).on("scroll", function() {
+ //    		if ($(window).scrollTop() >= pos){
+ //    			$('body').css('padding-top',sticky.outerHeight());
+ //    			sticky.addClass("fixed");
+ //    		}
+ //    		else {
+ //    			$('body').css('padding-top',0);
+ //    			sticky.removeClass("fixed");
+ //    		}      
+	// 		});			
+	// 	}
+	// }
+
+	// createSticky($(".compare__table-nav"));
+	function productListSlider() {
+		var slider = $('.product__slider-big')
+		slider.on('init', function() {
+			$('.product__slider-big').addClass('ready')
+		})
+		slider.slick({
+			slidesToShow: 1,
+			infinite: false,
+			asNavFor: $('.product__slider-thumbs'),
+			fade: true,
+			draggable: false,
+			arrows: false,
+		})
+		var slides = $('.product__item.slick-slide:not(.slick-cloned)')
+		var thumbClass = $('[data-thumbclass]').data('thumbclass')
+		// generating list of thumbnails
+		slides.each(function(index, element) {
+			// get current slide image url
+			var url = $(element).find('img').data('src')
+			// creating new thumbnail
+			var item = document.createElement('div')
+			var img = document.createElement('img')
+			img.src = url
+			$(item).addClass(thumbClass)
+			$(item).append(img)
+			var container = $('.product__slider-thumbs');
+			container.append(item);
+		});
+		var thumbnails = $('.product__slider-thumbs');
+		thumbnails.on('init', function() {
+			$('.product__slider-outer').addClass('ready')
+		})
+		thumbnails.slick({
+			slidesToShow: 1,
+			infinite: false,
+			asNavFor: $('.product__slider-big'),
+			arrows: false,
+		});
+
+		$('.product__thumb').click(function() {
+			var index = $(this).index()
+			slider.slick('slickGoTo', index)
+		})
 	}
-
-	createSticky($(".compare__table-nav"));
-
+	productListSlider()
 
 });

@@ -212,3 +212,26 @@
 		display: block
 		height: 100%
 		background-color: #97d700
+
+.def-btn
+	display: inline-block
+	text-align: center
+	box-shadow: 0 2px 0 #81b90a
+	border-radius: 3px
+	color: #fff
+	font-size: 12px
+	font-family: $bold-font
+	text-transform: uppercase
+	padding: 13px 25px
+	cursor: pointer
+	background-color: #97d700
+	transition: box-shadow .1s
+	cursor: pointer
+	user-select: none
+	@include for-tablet-portrait
+		margin: 13px 0
+	@include for-desktop
+		font-size: 18px
+		font-family: $default-font
+	&:active
+		box-shadow: 0 1px 0 rgba(129,185,9,1)

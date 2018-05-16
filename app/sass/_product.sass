@@ -1,0 +1,134 @@
+.product
+	margin-top: 20px
+	overflow: hidden
+	@include for-desktop
+		overflow: visible
+	&__heading
+		font-size: 34px
+		font-family: $bold-font
+		line-height: 1.1
+		margin-bottom: 15px
+		@include for-tablet-portrait
+			margin-bottom: 0
+		@include for-desktop
+			font-size: 50px
+	&__price
+		font-family: $bold-font
+		font-size: 26px
+		line-height: 1
+		@include for-desktop
+			font-size: 36px
+	&__actions
+		position: relative
+		display: flex
+		@include for-tablet-portrait
+			justify-content: flex-start
+	&__head
+		margin-bottom: 22px
+		@include for-tablet-portrait
+			display: flex
+			align-items: center
+			justify-content: space-between
+			margin-bottom: 15px
+	&__buy
+		position: absolute
+		bottom: calc(100% + 15px)
+		right: 0
+		@include for-tablet-portrait
+			bottom: 0
+			height: 38px
+			padding-top: 0
+			padding-bottom: 0
+			display: flex
+			align-items: center
+			margin: 0
+		@include for-desktop
+			height: auto
+			padding: 10px 35px
+	&__button
+		border: 1px solid #e3e3e3
+		border-radius: 3px
+		height: 38px
+		padding: 3px 20px
+		display: flex
+		align-items: center
+		justify-content: center
+		width: 100%
+		color: $accent-color
+		font-size: 14px
+		font-family: $bold-font
+		&:hover
+			border-color: darken(#e3e3e3, 10)
+		&:first-child
+			margin-right: 10px
+			width: auto
+		@include for-tablet-portrait
+			width: auto
+		@include for-desktop
+			height: 50px
+			font-size: 16px
+	&__slider
+		position: relative
+		margin-top: 20px
+		text-align: center
+		@include for-desktop
+			overflow: hidden
+	&__slider-big
+		opacity: 0
+		display: inline-block
+		&.ready
+			opacity: 1
+		max-width: 900px
+	&__special
+		width: 82px
+		height: 82px
+		border-radius: 50%
+		position: absolute
+		display: flex
+		align-items: center
+		justify-content: center
+		top: 0
+		left: 0
+		z-index: 2
+		background: $accent-color
+		font-size: 12px
+		font-family: $bold-font
+	&__slider-outer
+		display: none
+		align-items: center
+		justify-content: center
+		&.ready
+			display: flex
+	&__slider-thumbs
+		width: 135px
+		.slick-list
+			overflow: visible
+	&__thumb
+		border-bottom: 8px solid transparent
+		position: relative
+		opacity: .3
+		transition: 0.3s opacity
+		padding: 12px 20px
+		cursor: pointer
+		&:after
+			height: 8px
+			width: calc(100% - 40px)
+			bottom: -8px
+			left: 20px
+			position: absolute
+			background: #000
+			border-radius: 2px
+			content: ''
+			display: block
+			opacity: 0
+			transition: inherit
+		&.slick-current
+			opacity: 1
+			&:after
+				opacity: 1
+	&__item
+		.zoom
+			display: block
+			img
+				width: 100%
+				height: auto
