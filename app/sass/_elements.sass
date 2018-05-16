@@ -235,3 +235,357 @@
 		font-family: $default-font
 	&:active
 		box-shadow: 0 1px 0 rgba(129,185,9,1)
+
+.page-wrap
+	overflow: hidden
+
+.top-line
+	height: 52px
+	line-height: 52px
+	background: #f8f8f8
+	&__inner
+		display: flex
+		justify-content: space-between
+
+.top-line img
+	vertical-align: middle
+
+.top-line form
+	padding-left: 30px
+	margin-right: auto
+	margin-left: 0
+
+.top-line form input[type='text']
+	width: 330px
+	height: 32px
+	vertical-align: middle
+	border: 1px solid #e3e3e3
+	border-radius: 3px
+	padding: 0 0 0 10px
+	font-size: 12px
+
+.top-line form input[type='submit']
+	border: 0
+	cursor: pointer
+	width: 26px
+	height: 26px
+	vertical-align: middle
+	background: url('../img/search.png') no-repeat
+
+.top-line .links a
+	font-size: 12px
+	margin-left: 40px
+	color: #000
+
+.top-line .links a:hover
+	text-decoration: underline
+
+.top-line .links a img
+	margin-right: 8px
+
+.header
+	background: #000
+
+body.header-fixed .header
+	position: fixed
+	top: 0
+	z-index: 9999
+	width: 100%
+	box-shadow: 0 0 10px rgba(0,0,0,0.5)
+
+body.header-fixed .index-page-slider
+	padding-top: 75px
+
+body.header-fixed .style-top-info
+	margin-top: 75px
+
+body.header-fixed .catalog-page-top
+	padding-top: 125px
+
+body.header-fixed .product-page
+	padding-top: 115px
+
+body.header-fixed .page-content:not(.not-padding-fixed)
+	padding-top: 125px
+
+body.header-fixed .about-page
+	padding-top: 82px
+
+body.header-fixed .gray-block
+	padding-top: 0
+
+.header
+	&__inner
+		display: flex
+		align-items: center
+	.top-menu
+		width: 100%
+		margin-left: 50px
+
+.header .top-menu ul
+	padding: 0
+	margin: 0
+	list-style: none
+	display: flex
+	justify-content: space-between
+
+.header .top-menu ul li
+	display: inline-block
+
+.header .top-menu ul li:hover .drop-menu
+	display: block
+	height: 254px
+	padding: 15px 0
+
+.header .top-menu ul li:hover .drop-menu ul
+	-webkit-transition: opacity 0.5s ease-in-out
+	-moz-transition: opacity 0.5s ease-in-out
+	-ms-transition: opacity 0.5s ease-in-out
+	-o-transition: opacity 0.5s ease-in-out
+	opacity: 1
+
+.header .top-menu ul li a,
+.header .top-menu ul li span
+	font-size: 18px
+	color: #fff
+	display: block
+	font-family: "Panton-Bold"
+	padding: 25px 20px
+	cursor: pointer
+
+.header .top-menu ul li a:hover,
+.header .top-menu ul li span:hover,
+.header .top-menu ul li a.active,
+.header .top-menu ul li span.active
+	background: #fff
+	color: #000
+
+.header .top-menu ul li a.active,
+.header .top-menu ul li span.active
+	background: #f8f8f8
+
+.header .top-menu ul li .drop-menu
+	position: absolute
+	left: 0
+	width: 100%
+	background: url(../img/index-block.jpg) center
+	padding: 0
+	z-index: 3
+	height: 0
+	overflow: hidden
+	transition: .3s
+	box-shadow: 0 5px 10px rgba(0,0,0,0.5)
+
+.header .top-menu ul li .drop-menu ul
+	float: left
+	width: 25%
+	opacity: 0
+
+.header .top-menu ul li .drop-menu .container
+	position: relative
+	left: 0
+	height: 239px
+	background-position: 80% top
+	background-repeat: no-repeat
+
+.header .top-menu ul li .drop-menu ul li
+	display: block
+	padding: 5px 0
+
+.header .top-menu ul li .drop-menu ul li a
+	font-size: 16px
+	color: #000
+	font-family: "Panton-Regular"
+	padding: 0
+
+.header .top-menu ul li .drop-menu ul li a:hover
+	background: none
+	color: #97d700
+
+.footer
+	background: #000
+	padding: 40px 0 30px 0
+	font-size: 12px
+
+.footer .main
+	color: #97d700
+	text-transform: uppercase
+	margin-bottom: 10px
+	display: block
+
+.footer ul
+	padding: 0
+	margin: 0
+	list-style: none
+
+.footer ul li
+	margin-bottom: 5px
+
+.footer ul li a
+	color: #fff
+
+.footer ul li a:hover
+	color: #97d700
+
+.bottom-line
+	border-top: 1px solid #1b1b1b
+	height: 90px
+	line-height: 90px
+	background: #000
+	color: #fff
+	font-size: 12px
+
+.bottom-line img
+	vertical-align: middle
+
+.bottom-line .copy
+	line-height: 18px
+	padding-top: 30px
+
+.bottom-line .links a
+	font-size: 12px
+	text-transform: uppercase
+	color: #97d700
+	margin-left: 20px
+
+.bottom-line .links a img
+	margin-right: 4px
+
+.bottom-line .social
+	margin-right: 100px
+
+.bottom-line .social img
+	margin-left: 4px
+
+@media (max-width: 1200px)
+	.top-line .links a
+		margin-left: 5px
+		width: 26px
+		height: 26px
+		overflow: hidden
+		display: inline-block
+		line-height: 26px
+		vertical-align: middle
+
+	.top-line .links span
+		display: none
+
+	.sections-right-blocks ul li:nth-child(2n+2)
+		margin-right: 0
+	.top-line form
+		padding-left: 80px
+	.header .top-menu ul li a,
+	.header .top-menu ul li span
+		padding: 25px 6px
+@media (max-width: 991px)
+	.top-line form
+		padding-left: 40px
+
+	.top-line form input[type='text']
+		width: 220px
+
+	.top-line .links a
+		margin-left: 15px
+
+	.header .top-menu ul li a,
+	.header .top-menu ul li span
+		font-size: 14px
+		padding: 12px 4px
+
+	.header .logo
+		padding-top: 12px
+
+	.header .top-menu ul li .drop-menu
+		/*padding: 20px 0*/
+
+	.header .top-menu ul li .drop-menu ul li a
+		font-size: 14px
+	.header .logo img
+		width: 160px
+
+@media (max-width: 767px)
+	.top-line form input[type='text']
+		display: none
+
+	.top-line form
+		padding-left: 50px
+	.header
+		height: 50px
+		position: relative
+
+	body.header-fixed .index-page-slider
+		padding-top: 50px
+
+	body.header-fixed .style-top-info
+		margin-top: 50px
+
+	body.header-fixed .catalog-page-top
+		padding-top: 100px
+
+	body.header-fixed .gray-block
+		margin-top: -25px
+
+	body.header-fixed .product-page
+		padding-top: 90px
+
+	body.header-fixed .page-content
+		padding-top: 100px
+
+	.header .logo
+		padding-top: 15px
+		position: absolute
+
+	.header .top-menu
+		position: absolute
+		width: 100%
+		z-index: 3
+		background: #000
+		left: 0
+		margin-top: 50px
+		display: none
+
+	.header .top-menu ul li
+		display: block
+		margin: 0
+		text-align: center
+
+	.header .top-menu ul li:hover .drop-menu
+		display: none
+
+	.header .top-menu ul li .drop-menu
+		position: relative
+
+	.header .top-menu ul li .drop-menu ul
+		width: auto
+
+	.header .menu-button
+		position: absolute
+		width: 16px
+		height: 16px
+		right: 15px
+		top: 17px
+		background: url('../img/menu-button.jpg')
+		cursor: pointer
+
+	.header .menu-button.active
+		background: url('../img/menu-button_a.jpg')
+
+@media (min-width: 768px)
+	.header .top-menu
+		display: block !important
+
+@media (max-width: 440px)
+	.top-line form
+		padding-left: 3%
+
+	.top-line .social
+		padding-left: 5.5%
+
+	.top-line .links a
+		margin-left: 0
+@media (max-width: 387px)
+	.top-line form
+		padding-left: 2%
+
+	.top-line .social
+		padding-left: 1%
