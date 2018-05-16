@@ -69,6 +69,8 @@ $(function() {
 	$(window).on('resize orientationchange', function() {
   		$('.product-cake__inner_similar').slick('resize');
   		$('.product-cake__inner_property').slick('resize');
+  		$('.compare__product').slick('resize');
+  		$('.compare__slider-inner').slick('resize');
 	});
 
 
@@ -89,9 +91,11 @@ $(function() {
 	}
 	geometryTab();
 
-	$('.product-cake__img').matchHeight();
-	$('.product-cake__heading').matchHeight();
-	$('.product-cake__charact-list').matchHeight();
+	if($(window).width()>=600){
+		$('.product-cake__img').matchHeight();
+		$('.product-cake__heading').matchHeight();
+		$('.product-cake__charact-list').matchHeight();
+	}
 
 
 	function sizingBaner () {
@@ -119,7 +123,38 @@ $(function() {
 		slidesToScroll: 1,
 		mobileFirst: true,
 		asNavFor: '.compare__slider-inner',
-		draggable: false
+		draggable: false,
+		arrows: false,
+		responsive: [
+		{
+            breakpoint: 0,
+            settings: "unslick"
+        },
+        {
+            breakpoint: 600,
+            settings: "slick"
+        },
+	    {
+	      breakpoint: 600,
+	      settings: {
+	        infinite: false,
+			slidesToShow: 2,
+			slidesToScroll: 1,
+			draggable: false,
+			swipe: false
+	      }
+	    },
+	    {
+	      breakpoint: 1200,
+	      settings: {
+	        infinite: false,
+			slidesToShow: 3,
+			slidesToScroll: 1,
+			draggable: false,
+			swipe: false
+	      }
+	    }
+	  ]
 	});
 
 	$('.compare__slider-inner').slick({
@@ -130,6 +165,32 @@ $(function() {
 		asNavFor: '.compare__product',
 		nextArrow: $('.compare__slider-inner').parent().find('.compare__slider-next'),
         prevArrow: $('.compare__slider-inner').parent().find('.compare__slider-prev'),
+        responsive: [
+        {
+            breakpoint: 0,
+            settings: "unslick"
+        },
+        {
+            breakpoint: 600,
+            settings: "slick"
+        },
+	    {
+	      breakpoint: 600,
+	      settings: {
+	        infinite: false,
+			slidesToShow: 2,
+			slidesToScroll: 1
+	      }
+	    },
+	    {
+	      breakpoint: 1200,
+	      settings: {
+	        infinite: false,
+			slidesToShow: 3,
+			slidesToScroll: 1
+	      }
+	    }
+	  ]
 	});
 	
 
@@ -143,26 +204,81 @@ $(function() {
 	closeCompareNitification();
 
 
-	function createSticky(sticky) {
-	
-		// if (sticky) {
-		// 	console.log(sticky)
-
-		// 	var	pos = sticky.offset().top;
-		// 	$(window).on("scroll", function() {
-	 //    		if ($(window).scrollTop() >= pos){
-	 //    			$('body').css('padding-top',sticky.outerHeight());
-	 //    			sticky.addClass("fixed");
-	 //    		}
-	 //    		else {
-	 //    			$('body').css('padding-top',0);
-	 //    			sticky.removeClass("fixed");
-	 //    		}      
-		// 	});			
-		// }
+	function partHeadingTab(){
+		$('.product-card__tab-heading').click(function(){
+			if($(window).width()<600){
+				$(this).find('.product-card__tab-picker').toggleClass('active');
+				$(this).siblings('.product-card__tab-body').slideToggle();
+			}
+		})
 	}
 
-	createSticky($(".compare__table-nav"));
+	partHeadingTab();
 
+	function createSticky(sticky) {
+
+	if (sticky.length!==0) {
+
+	var	pos = sticky.offset().top;
+	$(window).on("scroll", function() {
+    		if ($(window).scrollTop() >= pos){
+     			$('body').css('padding-top',sticky.height());
+     			sticky.addClass("fixed");
+     		}
+     		else {
+     			$('body').css('padding-top',0);
+     			sticky.removeClass("fixed");
+     		}      
+ 		});			
+	 	}
+	 }
+
+	createSticky($(".compare__table-nav"));
+	
+	function productListSlider() {
+		var slider = $('.product__slider-big')
+		slider.on('init', function() {
+			$('.product__slider-big').addClass('ready')
+		})
+		slider.slick({
+			slidesToShow: 1,
+			infinite: false,
+			asNavFor: $('.product__slider-thumbs'),
+			fade: true,
+			draggable: false,
+			arrows: false,
+		})
+		var slides = $('.product__item.slick-slide:not(.slick-cloned)')
+		var thumbClass = $('[data-thumbclass]').data('thumbclass')
+		// generating list of thumbnails
+		slides.each(function(index, element) {
+			// get current slide image url
+			var url = $(element).find('img').data('src')
+			// creating new thumbnail
+			var item = document.createElement('div')
+			var img = document.createElement('img')
+			img.src = url
+			$(item).addClass(thumbClass)
+			$(item).append(img)
+			var container = $('.product__slider-thumbs');
+			container.append(item);
+		});
+		var thumbnails = $('.product__slider-thumbs');
+		thumbnails.on('init', function() {
+			$('.product__slider-outer').addClass('ready')
+		})
+		thumbnails.slick({
+			slidesToShow: 1,
+			infinite: false,
+			asNavFor: $('.product__slider-big'),
+			arrows: false,
+		});
+
+		$('.product__thumb').click(function() {
+			var index = $(this).index()
+			slider.slick('slickGoTo', index)
+		})
+	}
+	productListSlider()
 
 });
