@@ -281,4 +281,23 @@ $(function() {
 	}
 	productListSlider()
 
+	function header() {
+		$('.menu-button').click(function() {
+			$('.top-menu').slideToggle()
+		})
+		$('.top-menu ul li span').click(function() {
+			if ($(this).parent().hasClass('active')) {
+				return
+			}
+			$('.top-menu li').removeClass('active')
+			$('.drop-menu').removeClass('active')
+			$(this).parent().addClass('active')
+			var item = $(this).parent().children('.drop-menu')
+			if (item.length > 0) {
+				$(item).addClass('active')
+			}
+		})
+	}
+	header()
+
 });
