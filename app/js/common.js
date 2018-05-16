@@ -71,6 +71,8 @@ $(function() {
   		$('.product-cake__inner_property').slick('resize');
 	});
 
+
+	$('.geometry-tab__item.active').fadeIn();
 	function geometryTab(){
 		$('.geometry-tab span').click(function(){
 			var btns= $(this).parent().find('span');
@@ -79,10 +81,10 @@ $(function() {
 			$(this).addClass('active');
 			num=btns.index(this);
 			scene=scenes.eq(num);
-			scenes.fadeOut(500);
 			scenes.removeClass('active');
-			scene.fadeIn(500);
+			scenes.fadeOut(500);
 			scene.addClass('active');
+			scene.fadeIn(500);
 		})
 	}
 	geometryTab();
@@ -139,4 +141,27 @@ $(function() {
 	}
 
 	closeCompareNitification();
+
+
+	function createSticky(sticky) {
+	
+	if (typeof sticky !== "undefined") {
+
+		var	pos = sticky.offset().top;
+		$(window).on("scroll", function() {
+    		if ($(window).scrollTop() >= pos){
+    			$('body').css('padding-top',sticky.outerHeight());
+    			sticky.addClass("fixed");
+    		}
+    		else {
+    			$('body').css('padding-top',0);
+    			sticky.removeClass("fixed");
+    		}      
+			});			
+		}
+	}
+
+	createSticky($(".compare__table-nav"));
+
+
 });
