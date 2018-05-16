@@ -370,7 +370,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="product-card__tab-mob">
+					<div class="product-card__tab-body">
 						<div class="page-container page-container_table">
 							<div class="product-card__table">
 								<div class="product-card__tr">
@@ -931,8 +931,11 @@
 						</div>
 					</div>
 				</div>
-				<div id="location-map">
-					
+				<div class="location-map">
+					<div id="location-map__screen"></div>
+					<div class="location-map__link-wrap">
+						<a href="#" class="def-btn location-map__link">Где купить</a>
+					</div>
 				</div>
 
 			</div>
@@ -1071,7 +1074,7 @@
 	<script>
       function initMap() {
         var uluru = {lat: 55.607095, lng: 37.525000};
-        var map = new google.maps.Map(document.getElementById('location-map'), {
+        var map = new google.maps.Map(document.getElementById('location-map__screen'), {
           zoom: 17,
           center: uluru,
           fullscreenControl: false,

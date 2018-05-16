@@ -103,7 +103,7 @@
 		font-size: 12px
 		font-family: $bold-font
 		display: table-cell
-		padding: 10px 32px 10px 2.5%
+		padding: 10px 35px 10px 2.5%
 		width: 50%
 		position: relative
 		&:first-child
@@ -438,11 +438,22 @@
 			box-shadow: 0 1px 0 #81b90a
 
 #location-map
-	height: 500px
-	width: 100%
-	.gmnoprint
-		border-radius: 50% !important
+	&__screen
+		height: 500px
+		width: 100%
 
+.location-map
+	position: relative
+	&__link-wrap
+		position: absolute
+		top: 50%
+		left: 50%
+		transform: translate(-50%, -50%)
+
+	&__link
+		padding: 13px 20px
+		@include for-tablet-landscape
+			padding: 11px 29px
 /*.desk
 	width: 100%
 	height: 100px
