@@ -145,20 +145,21 @@ $(function() {
 
 	function createSticky(sticky) {
 	
-	if (typeof sticky !== "undefined") {
+		// if (sticky) {
+		// 	console.log(sticky)
 
-		var	pos = sticky.offset().top;
-		$(window).on("scroll", function() {
-    		if ($(window).scrollTop() >= pos){
-    			$('body').css('padding-top',sticky.outerHeight());
-    			sticky.addClass("fixed");
-    		}
-    		else {
-    			$('body').css('padding-top',0);
-    			sticky.removeClass("fixed");
-    		}      
-			});			
-		}
+		// 	var	pos = sticky.offset().top;
+		// 	$(window).on("scroll", function() {
+	 //    		if ($(window).scrollTop() >= pos){
+	 //    			$('body').css('padding-top',sticky.outerHeight());
+	 //    			sticky.addClass("fixed");
+	 //    		}
+	 //    		else {
+	 //    			$('body').css('padding-top',0);
+	 //    			sticky.removeClass("fixed");
+	 //    		}      
+		// 	});			
+		// }
 	}
 
 	createSticky($(".compare__table-nav"));

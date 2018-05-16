@@ -38,6 +38,35 @@
 	<!-- Custom HTML -->
 	
 	<div class="page-wrap">
+		<div class="product">
+			<div class="page-container product__inner">
+				<div class="product__head">
+					<h2 class="product__heading">Navigator-470 MD 24"+ V010</h2>
+					<div class="product__price">22.350 ₽</div>
+				</div>
+				<div class="product__actions">
+					<a href="#" class="product__button"><img src="img/360-degree.png" alt="360"></a>
+					<a href="#" class="product__button">Добавить к сравнению</a>
+					<a href="#" class="product__buy def-btn">Где купить</a>
+				</div>
+				<div class="product__slider">
+					<div class="product__slider-big">
+						<div class="product__item">
+							<a class="zoom fullzoom" href="img/4k-1.jpg">
+								<img src="img/bike1.jpg" data-src="img/bike1.jpg" alt="bike">
+							</a>
+						</div>
+						<div class="product__item">
+							<a class="zoom fullzoom" href="img/4k-2.jpg">
+								<img src="img/bike1.jpg" data-src="img/bike1.jpg" alt="bike">
+							</a>
+						</div>
+					</div>
+					<!-- thumbs container, items are genereted via js -->
+					<div class="product__slider-thumbs" data-thumbclass="product__thumb"></div>
+				</div>
+			</div>
+		</div>
 		<div class="product-card">
 			<div class="product-card__inner">
 				
@@ -625,7 +654,7 @@
 	</div>
 	</div>
 
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAFyw-JfBcR7lBt1MK1k2gYQch5DpuILE&callback=initMap"
+	<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCAFyw-JfBcR7lBt1MK1k2gYQch5DpuILE&callback=initMap"
     async defer></script>
 	
 	<script>
@@ -1022,12 +1051,13 @@
 	        infowindow.open(map, marker);
 	    });
       }
-    </script>
+    </script> -->
 
 	<!-- Optimized loading JS Start -->
 	<script>var scr = {"scripts":[
 		{"src" : "js/libs.min.js", "async" : false},
-		{"src" : "js/common.js", "async" : false}
+		{"src" : "js/common.js", "async" : false},
+		{"src" : "js/zoom.js", "async" : false}
 		]};!function(t,n,r){"use strict";var c=function(t){if("[object Array]"!==Object.prototype.toString.call(t))return!1;for(var r=0;r<t.length;r++){var c=n.createElement("script"),e=t[r];c.src=e.src,c.async=e.async,n.body.appendChild(c)}return!0};t.addEventListener?t.addEventListener("load",function(){c(r.scripts);},!1):t.attachEvent?t.attachEvent("onload",function(){c(r.scripts)}):t.onload=function(){c(r.scripts)}}(window,document,scr);
 	</script>
 	<!-- Optimized loading JS End -->
