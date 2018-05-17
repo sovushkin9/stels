@@ -16,13 +16,12 @@
 			text-decoration: none
 			border-bottom: 1px dotted #c6c6c6
 			transition: all .1s
-			@include for-desktop
-				font-size: 22px
-		&:hover,
-		&.active
-			a
+			&:hover,
+			&.active
 				color: #97d700
 				border-color: #97d700
+			@include for-desktop
+				font-size: 22px
 	&__galery
 		padding: 40px 0 0
 		@include for-tablet-landscape
@@ -54,7 +53,7 @@
 		user-select: none
 		cursor: pointer
 		margin: 0 9px
-		z-index: 99999 !important
+		z-index: 99
 		@include for-tablet-landscape
 			width: auto
 			height: auto

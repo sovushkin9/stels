@@ -5,11 +5,6 @@
 		@include for-tablet-portrait
 			box-shadow: 0 6px 4px rgba(79, 79, 79, 0.15)
 			margin-bottom: 6px
-		&.fixed
-			width: 100%
-			position: fixed
-			top: 0
-			z-index: 9999
 
 	&__exit-wrap
 		width: 100%
@@ -185,7 +180,7 @@
 		transition: box-shadow .1s
 		user-select: none
 		cursor: pointer
-		z-index: 99999
+		z-index: 99
 		&:active
 			box-shadow: 0 1px 0 rgba(129,185,9,1)
 		&:before
@@ -255,3 +250,15 @@
 			right: 0
 			margin: auto
 
+	&__tab-heading
+		cursor: pointer
+
+	&__tab-body
+		@include for-tablet-portrait
+			display: block !important
+
+.fixed
+	width: 100%
+	position: fixed
+	top: 0
+	z-index: 9999
