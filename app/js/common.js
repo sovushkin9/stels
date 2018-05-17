@@ -223,6 +223,9 @@ $(function() {
 	if (sticky.length!==0) {
 
 		var	pos = sticky.offset().top;
+		$(window).on("resize", function() {
+			var pos = sticky.offset().top;
+		})
 		
 		$(window).on("scroll", function() {
 	    		if ($(window).scrollTop() >= pos){
