@@ -84,9 +84,9 @@ $(function() {
 			num=btns.index(this);
 			scene=scenes.eq(num);
 			scenes.removeClass('active');
-			scenes.fadeOut(500);
+			scenes.hide()
 			scene.addClass('active');
-			scene.fadeIn(500);
+			scene.show()
 		})
 	}
 	geometryTab();
@@ -222,7 +222,7 @@ $(function() {
 
 		var	pos = sticky.offset().top;
 		$(window).on("resize", function() {
-			var pos = sticky.offset().top;
+			pos = sticky.offset().top;
 		})
 		
 		$(window).on("scroll", function() {
@@ -244,46 +244,72 @@ $(function() {
 
 	function productListSlider() {
 		var slider = $('.product__slider-big')
-		slider.on('init', function() {
+		slider.on('init', function(event, slick) {
 			$('.product__slider-big').addClass('ready')
 		})
 		slider.slick({
 			slidesToShow: 1,
 			infinite: false,
-			asNavFor: $('.product__slider-thumbs'),
 			fade: true,
 			draggable: false,
 			arrows: false,
+			responsive: [
+				{
+					breakpoint: 900,
+					settings: {
+						asNavFor: $('.product__slider-thumbs'),
+					}
+				}
+			]
 		})
 		var slides = $('.product__item.slick-slide:not(.slick-cloned)')
 		var thumbClass = $('[data-thumbclass]').data('thumbclass')
-		// generating list of thumbnails
 		slides.each(function(index, element) {
-			// get current slide image url
 			var url = $(element).find('img').data('src')
-			// creating new thumbnail
 			var item = document.createElement('div')
 			var img = document.createElement('img')
 			img.src = url
 			$(item).addClass(thumbClass)
+			if (index == slider.slick('slickCurrentSlide')) {
+				$(item).addClass('active')
+			}
 			$(item).append(img)
 			var container = $('.product__slider-thumbs');
 			container.append(item);
 		});
-		var thumbnails = $('.product__slider-thumbs');
-		thumbnails.on('init', function() {
-			$('.product__slider-outer').addClass('ready')
+
+		var $slick = false
+		var thumbnails = $('.product__slider-thumbs')
+		function sliderFunc() {
+			var width = $(window).width()
+			if (width < 900){
+				$('.product__thumb').removeClass('active')
+				if (!$slick) {
+					thumbnails.slick({
+						slidesToShow: 1,
+						infinite: false,
+						asNavFor: $('.product__slider-big'),
+						arrows: false,
+					})
+					$slick = true
+				}
+			}
+			else
+				if ($slick) {
+					thumbnails.slick('unslick')
+					$slick = false
+				}
+		}
+		sliderFunc()
+		$(window).resize(function() {
+			sliderFunc()
 		})
-		thumbnails.slick({
-			slidesToShow: 1,
-			infinite: false,
-			asNavFor: $('.product__slider-big'),
-			arrows: false,
-		});
 
 		$('.product__thumb').click(function() {
 			var index = $(this).index()
 			slider.slick('slickGoTo', index)
+			$('.product__thumb').removeClass('active')
+			$(this).addClass('active')
 		})
 	}
 	productListSlider()
@@ -413,5 +439,28 @@ $(function() {
 	}
 
 	scrollNav();
+
+	function productNav() {
+		function stickyMenu() {
+			var topOffset = $(window).scrollTop()
+			var nav = $('.product-card__nav')
+			var navPos = nav.offset().top
+			function toggleMenu() {
+				navPos = nav.offset().top
+				topOffset = $(window).scrollTop()
+				if (navPos < topOffset) {
+					nav.addClass('fixed')
+				}
+				else {
+					nav.removeClass('fixed')
+				}
+			}
+			$(window).scroll(function() {
+				toggleMenu()
+			})
+		}
+		stickyMenu()
+	}
+	productNav()
 
 });

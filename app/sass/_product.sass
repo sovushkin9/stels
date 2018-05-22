@@ -95,15 +95,19 @@
 		font-size: 12px
 		font-family: $bold-font
 	&__slider-outer
-		display: none
+		display: flex
 		align-items: center
 		justify-content: center
-		&.ready
-			display: flex
 	&__slider-thumbs
 		width: 135px
+		@include for-tablet-landscape
+			width: 100%
+			display: flex
+			justify-content: center
 		.slick-list
 			overflow: visible
+		.slick-track
+			display: flex
 	&__thumb
 		border-bottom: 8px solid transparent
 		position: relative
@@ -111,6 +115,8 @@
 		transition: 0.3s opacity
 		padding: 12px 20px
 		cursor: pointer
+		@include for-tablet-landscape
+			width: 135px
 		&:after
 			height: 8px
 			width: calc(100% - 40px)
@@ -123,6 +129,10 @@
 			display: block
 			opacity: 0
 			transition: inherit
+		&.active
+			opacity: 1
+			&:after
+				opacity: 1
 		&.slick-current
 			opacity: 1
 			&:after

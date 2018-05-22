@@ -127,6 +127,8 @@
 		align-items: flex-start
 		@media (min-width: 1000px)
 			justify-content: flex-start
+		@include for-desktop
+			margin: 0
 	&__item
 		border-radius: 3px
 		border: 1px solid #e3e3e3
@@ -136,6 +138,10 @@
 			max-width: 262px
 			margin: 0 15px 30px
 			width: 100%
+		@include for-desktop
+			width: calc(25% - 20px)
+			margin-right: 15px
+			margin-left: 0
 
 	&__body
 		padding: 20px 13px 11px
