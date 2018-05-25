@@ -443,10 +443,20 @@ $(function() {
 	function productNav() {
 		function stickyMenu() {
 			var topOffset = $(window).scrollTop()
+			var navContainer = $('.product-card__nav-outer')
 			var nav = $('.product-card__nav')
 			var navPos = nav.offset().top
+			// $('.menu-item').each(function(i, elem) {
+			// 	var waypoints = $()
+			// })
+			var waypoints = $('.menu-item').waypoint({
+				handler: function(direction) {
+					$('.product-card__nav-item a').removeClass('active')
+					$('a[href="#'+ this.element.id +'"]').addClass('active')
+				},
+			})
 			function toggleMenu() {
-				navPos = nav.offset().top
+				navPos = navContainer.offset().top
 				topOffset = $(window).scrollTop()
 				if (navPos < topOffset) {
 					nav.addClass('fixed')
@@ -455,6 +465,7 @@ $(function() {
 					nav.removeClass('fixed')
 				}
 			}
+			toggleMenu()
 			$(window).scroll(function() {
 				toggleMenu()
 			})
